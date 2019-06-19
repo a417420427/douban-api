@@ -31,4 +31,30 @@ router.get('/showing', async ctx => {
     ctx.body = result.data
 })
 
+router.get('/detail/:id/', async ctx => {
+    const result = await axios({
+        url: `/rexxar/api/v2/movie/${ctx.params.id}/credits` //30475767
+    })
+    ctx.body = result.data
+})
+
+router.get('/detail/:id/topic', async ctx => {
+    const query = ctx.request.query
+    const result = await axios({
+        url: `/rexxar/api/v2/movie/${ctx.params.id}/forum_topics`,
+        params: getParams(query, 0, 5)
+    })
+    ctx.body = result.data
+})
+
+router.get('/detail/:id/interests', async ctx => {
+    const query = ctx.request.query
+    const result = await axios({
+        url: `/rexxar/api/v2/movie/${ctx.params.id}/interests`,
+        params: getParams(query, 0, 4)
+    })
+    ctx.body = result.data
+})
+
+
 export default router

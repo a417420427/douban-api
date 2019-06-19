@@ -1,8 +1,9 @@
-import { app } from './app'
+require("@babel/register")({
+    presets: [["@babel/preset-env", {
+        targets: {
+            node: "10"
+        }
+    }]]
+});
 
-const bpp = async () => {
-    await app()
-    console.log(app)
-}
-
-bpp()
+module.exports = require('./utils/files.js')
