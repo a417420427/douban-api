@@ -3,13 +3,14 @@ import Router from 'koa-router'
 import BodyParser from 'koa-bodyparser'
 import koaBody from 'koa-body'
 import cors from '@koa/cors'
+import { accessLogger, systemLogger, } from './logger';
 import api from './api'
 const app = new Koa()
 const route = new Router()
 //  加载路由中间件
 app.use(cors())
 app.use(BodyParser())
-
+app.use(accessLogger())
 route.use('/api', api.routes(), api.allowedMethods())
 
 app.use(koaBody({
