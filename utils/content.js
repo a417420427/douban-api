@@ -7,10 +7,12 @@ export const getMovieDetail = html => {
     return {
         cover: dom.find('.right img').attr('src'),
         rating: {
-            score: dom.find('.left .rating-stars').data('data-rating'),
-            people: dom.find('.left .rating-stars').next('span').html()
+            score: dom.find('.left .rating-stars').attr('data-rating'),
+            people: dom.find('.left .rating-stars').next().next('span').html()
         },
         meta: dom.find('.left .meta').html().trim(),
         intro: $('.card .subject-intro .bd p').attr('data-content')
     }
 }
+
+export const getTvDetail = getMovieDetail
