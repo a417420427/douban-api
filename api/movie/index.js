@@ -1,5 +1,7 @@
 import Router from 'koa-router'
+import cheerio from 'cheerio'
 import axios, { getParams } from '../../utils/request'
+import { getMovieDetail } from '../../utils/content';
 const router = new Router()
 // 最新热门
 router.get('/latest', async ctx => {
@@ -30,8 +32,15 @@ router.get('/showing', async ctx => {
     })
     ctx.body = result.data
 })
-
+// https://m.douban.com/27090753/ 请求404， 需要操作dom获取数据
 router.get('/detail/:id/', async ctx => {
+    const result = await axios({
+        url: `movie/subject/${ctx.params.id}` //30475767
+    })
+    ctx.body = getMovieDetail(result.data)
+})
+
+router.get('/detail/:id/credits', async ctx => {
     const result = await axios({
         url: `/rexxar/api/v2/movie/${ctx.params.id}/credits` //30475767
     })

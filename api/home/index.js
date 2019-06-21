@@ -27,19 +27,22 @@ router.get('/menu', async ctx => {
             name: "电影",
             icon: "movie",
             desc: "电影热映",
-            color: "#2384e8"
+            color: "#2384e8",
+            link: 'movie'
         },
         {
             name: "电视",
             icon: "TV",
             desc: "正在热播",
-            color: "#7a6adb"
+            color: "#7a6adb",
+            link: 'tv'
         },
         {
             name: "图书",
             icon: "book",
             desc: "畅销排行",
-            color: "#9f7860"
+            color: "#9f7860",
+            link: 'book'
         },
         {
             name: "同城",
