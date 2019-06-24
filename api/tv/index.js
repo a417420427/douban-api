@@ -2,7 +2,23 @@ import Router from 'koa-router'
 import axios, { getParams } from '../../utils/request'
 import { getTvDetail } from '../../utils/content';
 const router = new Router()
-///rexxar/api/v2/subject_collection/tv_domestic/items?os=ios&callback=jsonp1&start=0&count=8&loc_id=108288&_=0
+
+// 分类
+router.get('/types', async ctx => {
+    ctx.body = [
+        {
+            link: "/tv/american", name: "英美剧"
+        },
+        { link: "/tv/korean", name: "韩剧" },
+        { link: "/tv/chinese", name: "国产剧" },
+        { link: "/tv/japanese", name: "日剧" },
+        { link: "/tv/animation", name: "动漫" },
+        { link: "/tv/tvshow", name: "综艺" }
+    ]
+})
+
+
+
 router.get('/domestic', async ctx => {
     const query = ctx.request.query
     const result = await axios({

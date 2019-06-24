@@ -2,6 +2,26 @@ import Router from 'koa-router'
 import axios, { getParams } from '../../utils/request'
 import { getBookDetail } from '../../utils/content';
 const router = new Router()
+
+// 分类
+router.get('/types', async ctx => {
+    ctx.body = [
+        { link: "/book/novel", name: "小说" },
+        { link: "/book/love", name: "爱情" },
+        { link: "/book/history", name: "历史" },
+        { link: "/book/foreign", name: "外国文学" },
+        { link: "/book/youth", name: "青春" },
+        { link: "/book/motivation", name: "励志" },
+        { link: "/book/essay", name: "随笔" },
+        { link: "/book/bio", name: "传记" },
+        { link: "/book/detective", name: "推理" },
+        { link: "/book/travel", name: "旅行" },
+        { link: "/book/fantasy", name: "奇幻" },
+        { link: "/book/business", name: "经管" }
+    ]
+})
+
+
 //items?os=ios&callback=jsonp1&start=0&count=8&loc_id=0&_=0
 router.get('/unreal', async ctx => {
     const query = ctx.request.query
@@ -31,9 +51,10 @@ router.get('/list', async ctx => {
 })
 
 
+
 router.get('/detail/:id/', async ctx => {
     const result = await axios({
-        url: `movie/subject/${ctx.params.id}` //30475767
+        url: `book/subject/${ctx.params.id}` //30475767
     })
     ctx.body = getBookDetail(result.data)
 })
