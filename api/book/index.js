@@ -1,5 +1,6 @@
 import Router from 'koa-router'
 import axios, { getParams } from '../../utils/request'
+import { getBookDetail } from '../../utils/content';
 const router = new Router()
 //items?os=ios&callback=jsonp1&start=0&count=8&loc_id=0&_=0
 router.get('/unreal', async ctx => {
@@ -29,12 +30,12 @@ router.get('/list', async ctx => {
     ctx.body = result.data
 })
 
-router.get('/detail/:id', async ctx => {
-    const result = await axios({
-        url: `/rexxar/api/v2/market/book/${ctx.params.id}` //30475767
-    })
 
-    ctx.body = result.data
+router.get('/detail/:id/', async ctx => {
+    const result = await axios({
+        url: `movie/subject/${ctx.params.id}` //30475767
+    })
+    ctx.body = getBookDetail(result.data)
 })
 
 router.get('/detail/:id/topic', async ctx => {

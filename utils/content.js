@@ -25,6 +25,8 @@ export const getMovieDetail = html => {
     }
 }
 
+export const getBookDetail = getMovieDetail
+
 export const getTvDetail = getMovieDetail
 
 export const getMusicDetail = getMovieDetail
