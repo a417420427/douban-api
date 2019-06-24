@@ -3,6 +3,28 @@ import cheerio from 'cheerio'
 import axios, { getParams } from '../../utils/request'
 import { getMovieDetail } from '../../utils/content';
 const router = new Router()
+// 分类
+router.get('/types', async ctx => {
+    ctx.body = [
+        { link: '/movie/classic', name: '经典' },
+        { link: '/movie/underrated', name: '冷门佳片' },
+        { link: '/movie/doubantop', name: '豆瓣高分' },
+        { link: '/movie/action', name: '动作' },
+        { link: '/movie/comedy', name: '喜剧' },
+        { link: '/movie/love', name: '爱情' },
+        { link: '/movie/mystery', name: '悬疑' },
+        { link: '/movie/horror', name: '恐怖' },
+        { link: '/movie/scifi', name: '科幻' },
+        { link: '/movie/sweet', name: '治愈' },
+        { link: '/movie/artfilm', name: '文艺' },
+        { link: '/movie/youth', name: '成长' },
+        { link: '/movie/animation', name: '动画' },
+        { link: '/movie/chinese', name: '华语' },
+        { link: '/movie/western', name: '欧美' },
+        { link: '/movie/korean', name: '韩国' },
+        { link: '/movie/japanese', name: '日本' }
+    ]
+})
 // 最新热门
 router.get('/latest', async ctx => {
     const query = ctx.request.query
