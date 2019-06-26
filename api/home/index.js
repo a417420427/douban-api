@@ -48,37 +48,43 @@ router.get('/menu', async ctx => {
             name: "同城",
             icon: "location",
             desc: "周末活动",
-            color: "#e6467e"
+            color: "#e6467e",
+            link: 'city'
         },
         {
             name: "小组",
             icon: "group",
             desc: "志趣相投",
-            color: "#2ab8cc"
+            color: "#2ab8cc",
+            link: 'group'
         },
         {
             name: "音乐",
             icon: "music",
             desc: "新碟榜",
-            color: "#f48f2e"
+            color: "#f48f2e",
+            link: 'music'
         },
         {
             name: "阅读",
             icon: "read",
             desc: "电子书",
-            color: "#9f7860"
+            color: "#9f7860",
+            link: 'read'
         },
         {
             name: "游戏",
             icon: "game",
             desc: "虚拟世界",
-            color: "#5774c5"
+            color: "#5774c5",
+            link: 'game'
         },
         {
             name: "应用",
             icon: "app",
             desc: "玩手机",
-            color: "#596cdd"
+            color: "#596cdd",
+            link: 'app'
         },
         {
             name: "广播",
