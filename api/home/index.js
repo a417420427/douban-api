@@ -107,6 +107,14 @@ router.get('/menu', async ctx => {
     ]
 })
 
+
+router.get('/detail/:id', async ctx => {
+    const result = await axios({
+        url: `/rexxar/api/v2/note/${ctx.params.id}`
+    })
+    ctx.body = result.data
+})
+
 export default router
 
 
