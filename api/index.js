@@ -6,6 +6,7 @@ import assets from './assets'
 import tv from './tv'
 import music from './music'
 import game from './game'
+import time from './time'
 const router = new Router()
 
 router.use('/assets', assets.routes(), assets.allowedMethods())
@@ -15,5 +16,6 @@ router.use('/movie', movie.routes(), movie.allowedMethods())
 router.use('/tv', tv.routes(), tv.allowedMethods())
 router.use('/music', music.routes(), music.allowedMethods())
 router.use('/game', game.routes(), game.allowedMethods())
+router.use('/time', time.routes(), time.allowedMethods())
 
 export default router
